@@ -112,3 +112,22 @@ def test_login_empty_credentials():
     assert login_page.get_validation_message("email") == "이 입력란을 작성하세요."
 
     driver.quit()
+
+def test_logout():
+    driver = webdriver.Chrome()
+    driver.get("https://automationexercise.com")
+    driver.find_element(By.LINK_TEXT, "Signup / Login").click()
+
+    login_page = LoginPage(driver) # login_page 연결
+    
+    #TC_LOGOUT_001
+    login_page.enter_email("qatest1234@example.com")
+    login_page.enter_password("1234")
+    login_page.click_login_button()
+    login_page.click_logout()
+
+    assert "login" in driver.current_url
+
+    driver.quit()    
+    
+        

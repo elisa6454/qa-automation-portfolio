@@ -27,3 +27,5 @@ class LoginPage:
         return self.driver.execute_script("return arguments[0].validationMessage;", field)
     # JS를 실행해서 (입력창의 validationMessage(브라우저가 띄운 검증 메시지)를 가져와, field(예: email 또는 password 입력창) )
     
+    def click_logout(self):
+        self.driver.find_element(By.LINK_TEXT, "Logout").click()
