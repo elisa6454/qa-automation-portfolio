@@ -14,7 +14,9 @@ class LoginPage:
         self.driver.find_element(By.NAME, "password").send_keys(password)
         
     def click_login_button(self):
-        self.driver.find_element(By.CSS_SELECTOR, "button[data-qa='login-button']").click()
+        button = self.driver.find_element(By.CSS_SELECTOR, "button[data-qa='login-button']")
+        self.driver.execute_script("arguments[0].click();", button)
+    # 광고 iframe이 로그인 버튼을 가려, 일반 click()이 차단되어서 있어 JS click 사용
         
     def get_error_message(self):
         return self.driver.find_element(By.CSS_SELECTOR, "p[style*='color: red']").text
@@ -24,3 +26,4 @@ class LoginPage:
         field = self.driver.find_element(By.NAME, field_name)
         return self.driver.execute_script("return arguments[0].validationMessage;", field)
     # JS를 실행해서 (입력창의 validationMessage(브라우저가 띄운 검증 메시지)를 가져와, field(예: email 또는 password 입력창) )
+    
