@@ -7,11 +7,11 @@ class LoginPage:
     # 브라우저를 받아서 보관 - ex) chrome 
     
     def enter_email(self, email):
-        self.driver.find_element(By.NAME, "email").send_keys(email)
+        self.driver.find_element(By.CSS_SELECTOR, "input[data-qa='login-email']").send_keys(email)
     # chrome.웹페이지 요소 찾아(NAME이라는 속성을 기준으로, email인 요소를 찾아라)[찾았다!].찾은 입력창에 email 값을 입력해.
     
     def enter_password(self, password):
-        self.driver.find_element(By.NAME, "password").send_keys(password)
+        self.driver.find_element(By.CSS_SELECTOR, "input[data-qa='login-password']").send_keys(password)
         
     def click_login_button(self):
         button = self.driver.find_element(By.CSS_SELECTOR, "button[data-qa='login-button']")
@@ -22,8 +22,8 @@ class LoginPage:
         return self.driver.find_element(By.CSS_SELECTOR, "p[style*='color: red']").text
     # 아이디/비번 다 입력했는데 틀렸을 때: "Your email or password is incorrect!" 
     
-    def get_validation_message(self, field_name):
-        field = self.driver.find_element(By.NAME, field_name)
+    def get_validation_message(self, data_qa_value):
+        field = self.driver.find_element(By.CSS_SELECTOR, f"[data-qa='{data_qa_value}']")
         return self.driver.execute_script("return arguments[0].validationMessage;", field)
     # JS를 실행해서 (입력창의 validationMessage(브라우저가 띄운 검증 메시지)를 가져와, field(예: email 또는 password 입력창) )
     

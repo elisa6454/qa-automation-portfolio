@@ -48,7 +48,7 @@ def test_login_without_password():
     login_page.enter_email("qatest1234@example.com")
     login_page.click_login_button()      
     
-    assert login_page.get_validation_message("password")== "이 입력란을 작성하세요."  
+    assert login_page.get_validation_message("login-password")== "이 입력란을 작성하세요."  
     
     driver.quit()
     
@@ -80,7 +80,7 @@ def test_login_invalid_email_format():
     login_page.enter_password("1234")
     login_page.click_login_button()
 
-    assert login_page.get_validation_message("email") == "이메일 주소에 '@'를 포함해 주세요. 'qatest.com'에 '@'가 없습니다."
+    assert login_page.get_validation_message("login-email") == "이메일 주소에 '@'를 포함해 주세요. 'qatest.com'에 '@'가 없습니다."
 
     driver.quit()
     
@@ -95,7 +95,7 @@ def test_login_without_email():
     login_page.enter_password("1234")
     login_page.click_login_button()      
         
-    assert login_page.get_validation_message("email") == "이 입력란을 작성하세요."  
+    assert login_page.get_validation_message("login-email") == "이 입력란을 작성하세요."  
         
     driver.quit()
     
@@ -109,7 +109,7 @@ def test_login_empty_credentials():
     #TC_LOGIN_007
     login_page.click_login_button()
 
-    assert login_page.get_validation_message("email") == "이 입력란을 작성하세요."
+    assert login_page.get_validation_message("login-email") == "이 입력란을 작성하세요."
 
     driver.quit()
 
