@@ -6,7 +6,7 @@ class SignupPage:
     def __init__(self, driver):
         self.driver = driver 
         
-    # Step 1
+    # Page 1
     def enter_name(self, name):
         self.driver.find_element(By.NAME, "name").send_keys(name)
         
@@ -20,7 +20,7 @@ class SignupPage:
             EC.presence_of_element_located((By.NAME, "password"))
         )
         
-    # Step 2
+    # Page 2
     def select_title(self, title):
         self.driver.find_element(By.CSS_SELECTOR, f"input[value='{title}']").click() # Mr / Mrs
         WebDriverWait(self.driver, 10).until(
@@ -47,7 +47,7 @@ class SignupPage:
         button = self.driver.find_element(By.CSS_SELECTOR, "button[data-qa='create-account']")
         self.driver.execute_script("arguments[0].click();", button)
     
-    # Step 3
+    # Page 3
     def click_continue(self):
         button = self.driver.find_element(By.CSS_SELECTOR, "a[data-qa='continue-button']")
         self.driver.execute_script("arguments[0].click();", button)
