@@ -84,3 +84,22 @@
 
 **Severity**: Low
 **Priority**: Low
+
+---
+
+## BUG-006: API returns 200 instead of documented error status codes
+
+**Steps to reproduce**
+
+1. Send a POST request to `/api/verifyLogin` without the email parameter
+2. Send a POST request to `/api/verifyLogin` with invalid email/password
+
+**Expected result** (per official API documentation):
+
+- Missing parameter -> 400
+- Invalid credentials -> 404
+
+**Actual result**: Both cases return status code 200, with the correct error message in the response body, but the wrong status code.
+
+**Severity**: Low
+**Priority**: Low
