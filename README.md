@@ -131,30 +131,31 @@ Python 3.12 · Selenium · pytest · requests
 | 로그인 검증 (Verify Login) | 3 | 3 |
 | **합계** | **7** | **7** |
 
-## 📁 프로젝트 구조
+## 📁 Project Structure
 ```text
 qa-automation-portfolio/
 ├── docs/
-│   ├── test-plan.md         # 테스트 계획서
-│   ├── test-cases.xlsx      # 테스트 케이스 명세서
-│   └── bug-reports.md       # 결함 리포트
+│   ├── test-plan.md
+│   ├── test-cases.xlsx
+│   └── bug-reports.md
 ├── tests/
-│   ├── ui/                  # UI 테스트 코어
-│   │   ├── pages/           # Page Object Model 패턴 적용
+│   ├── ui/
+│   │   ├── pages/
 │   │   │   ├── login_page.py
 │   │   │   ├── signup_page.py
 │   │   │   └── search_page.py
 │   │   ├── test_login.py
 │   │   ├── test_signup.py
 │   │   └── test_search.py
-│   └── api/                 # API 테스트 스크립트
+│   └── api/
 │       ├── test_products_api.py
 │       ├── test_search_api.py
 │       └── test_login_api.py
-├── requirements.txt         # 의존성 패키지 목록
+├── requirements.txt
 └── README.md
+```
 
-## ▶️ 실행방법
+## ▶️ 실행 방법
 ```bash
 python -m venv venv
 source venv/bin/activate
