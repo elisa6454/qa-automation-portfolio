@@ -131,7 +131,7 @@ Python 3.12 · Selenium · pytest · requests
 | 로그인 검증 (Verify Login) | 3 | 3 |
 | **합계** | **7** | **7** |
 
-## 📁 Project Structure
+## 📁 프로젝트 구조
 ```text
 qa-automation-portfolio/
 ├── docs/
